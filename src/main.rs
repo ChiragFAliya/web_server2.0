@@ -147,11 +147,7 @@ async fn register(app_state: web::Data<AppState>, user: web::Json<User>) -> impl
     let _ = db.save_to_file();
     HttpResponse::Ok().finish() 
 }
-// async fn register() -> impl Responder {
-//   println!("hello");
-//   HttpResponse::Ok().finish()
 
-// }
 
 async fn login(app_state: web::Data<AppState>, user: web::Json<User>) -> impl Responder {
     let mut db: std::sync::MutexGuard<'_, Database> = app_state.db.lock().unwrap();
